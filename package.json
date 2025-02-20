@@ -36,6 +36,9 @@
     ],
     "@pages/*": [
       "pages/*"
+    ],
+    "@assets/*": [
+      "assets/*"
     ]
   }
 }
