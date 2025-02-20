@@ -4,7 +4,8 @@ export const PortfolioData = [
   {
     title: "VinTransfr",
     alt: "VinTransfr Logo",
-    description: "Bridging the Gap Between Charity and Generosity in Vietnam",
+    description:
+      "Software solution for bridging the hap netween charity and generosity in Vietnam",
     image: vintransfrLogo,
     link: "https://vintransfr.com/",
   },
