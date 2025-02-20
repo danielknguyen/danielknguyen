@@ -1,5 +1,10 @@
+html {
+  margin-top: 70px /* height of navbar */;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  background-color: #121212;
 }
