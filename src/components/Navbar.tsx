@@ -1,4 +1,5 @@
 import { useState, MouseEvent, ReactNode } from "react";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -55,11 +56,12 @@ const buttonStyles = {
   my: 2,
   color: "#000000",
   display: "block",
+  textTransform: "none",
 };
 
 const linkStyle = {
   textDecoration: "none",
-  color: "#000000",
+  color: "inherit",
 };
 
 interface NavbarProps {
@@ -82,7 +84,13 @@ export const Navbar = ({ logo, pages }: NavbarProps) => {
     <Box sx={navbarContainerStyles}>
       <AppBar color="inherit">
         <Toolbar>
-          <Typography variant="h6" noWrap component="a" sx={titleStyles}>
+          <Typography
+            variant="h6"
+            noWrap
+            component={Link}
+            to="/"
+            sx={titleStyles}
+          >
             {logo}
           </Typography>
           <Box sx={mobileMenuButtonStyles}>
@@ -108,19 +116,22 @@ export const Navbar = ({ logo, pages }: NavbarProps) => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <a href={`/${NavigationLinks[page]}`} style={linkStyle}>
+                  <Link to={`${NavigationLinks[page]}`} style={linkStyle}>
                     {page}
-                  </a>
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
           <Box sx={desktopMenuStyles}>
             {pages.map((page) => (
-              <Button key={page} sx={buttonStyles}>
-                <a href={`/${NavigationLinks[page]}`} style={linkStyle}>
-                  {page}
-                </a>
+              <Button
+                key={page}
+                component={Link}
+                to={`${NavigationLinks[page]}`}
+                sx={buttonStyles}
+              >
+                {page}
               </Button>
             ))}
           </Box>
