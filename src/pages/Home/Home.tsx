@@ -30,7 +30,7 @@ export const Home = () => {
 
   return (
     <Box className={styles.container}>
-      <Box>
+      <Box className={styles.inner}>
         <span className={styles.textStyle}>
           {text}
           {showCursor ? "|" : "\u00A0"}
