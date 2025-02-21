@@ -6,7 +6,7 @@ import Button from "@mui/material/Button";
 import CardActions from "@mui/material/CardActions";
 import { Link } from "react-router-dom";
 
-const cardStyles = {
+const defaultCardStyles = {
   root: {
     width: 350,
   },
@@ -18,24 +18,37 @@ const cardStyles = {
   description: {
     color: "text.secondary",
   },
+  subtitle: {
+    mb: 1,
+    color: "text.secondary",
+  },
 };
 
 interface CardProps {
   title: string;
-  link: string;
+  subtitle?: string;
+  link?: string;
   alt: string;
   description: string;
   image: string;
   actions?: { label: string; onClick: () => void }[];
+  cardStyles?: {
+    root?: {};
+    media?: {};
+    description?: {};
+    subtitle?: {};
+  };
 }
 
 export const Card = ({
   title,
+  subtitle,
   link,
   alt = "",
   description,
   image,
   actions = [],
+  cardStyles = defaultCardStyles,
 }: CardProps) => {
   return (
     <MuiCard sx={cardStyles.root}>
@@ -49,20 +62,27 @@ export const Card = ({
         <Typography gutterBottom variant="h5" component="div">
           {title}
         </Typography>
+        {subtitle && (
+          <Typography variant="body2" sx={cardStyles.subtitle}>
+            {subtitle}
+          </Typography>
+        )}
         <Typography variant="body2" sx={cardStyles.description}>
           {description}
         </Typography>
       </CardContent>
       <CardActions>
-        <Button
-          size="small"
-          color="inherit"
-          component={Link}
-          to={link}
-          target="_blank"
-        >
-          See More
-        </Button>
+        {link && (
+          <Button
+            size="small"
+            color="inherit"
+            component={Link}
+            to={link}
+            target="_blank"
+          >
+            See More
+          </Button>
+        )}
         {actions.map((action, index) => (
           <Button
             key={index}
