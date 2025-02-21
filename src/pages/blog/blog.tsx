@@ -72,8 +72,6 @@ export const Blog = () => {
     })();
   }, []);
 
-  console.log(blog);
-
   return (
     <>
       <Box className={styles.breadcrumbs}>
