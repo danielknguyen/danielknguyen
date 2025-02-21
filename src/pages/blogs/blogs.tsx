@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
+import DOMPurify from "dompurify";
 import { Card } from "components/Card";
 import { blogsApi } from "services/modules/blogsApi";
-import { stripHtml } from "utils/stripHtml";
 import styles from "./styles.module.css";
 
 const cardStyles = {
@@ -57,7 +57,13 @@ export const Blogs = () => {
           title,
           subtitle: `${author} - ${dateString}`,
           alt: title,
-          description: stripHtml(description),
+          description: (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(description),
+              }}
+            />
+          ),
           image,
         };
       });
