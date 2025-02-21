@@ -39,6 +39,7 @@ interface CardProps {
     description?: {};
     subtitle?: {};
   };
+  enableTargetBlank?: boolean;
 }
 
 export const Card = ({
@@ -50,6 +51,7 @@ export const Card = ({
   image,
   actions = [],
   cardStyles = defaultCardStyles,
+  enableTargetBlank = true,
 }: CardProps) => {
   return (
     <MuiCard sx={cardStyles.root}>
@@ -79,7 +81,7 @@ export const Card = ({
             color="inherit"
             component={Link}
             to={link}
-            target="_blank"
+            target={enableTargetBlank ? "_blank" : undefined}
           >
             See More
           </Button>
