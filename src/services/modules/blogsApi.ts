@@ -1,14 +1,15 @@
 import { api } from "services/api";
 
 export class BlogsApi {
-  async getBlogs() {
-    api
+  async getBlogs(): Promise<Response> {
+    return api
       .get("/posts")
-      .then((data) => {
-        return data;
+      .then((results) => {
+        return results;
       })
       .catch((error) => {
         console.log(error);
+        throw error;
       });
   }
 }
