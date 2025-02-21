@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { Typography, Box } from "@mui/material";
 import DOMPurify from "dompurify";
 import { Card } from "components/Card";
 import { blogsApi } from "services/modules/blogsApi";
 import styles from "./styles.module.css";
+import { NavigationLinks } from "../../consts";
+import { Blog } from "pages/blog";
 
 const cardStyles = {
   root: {
     width: "100%",
-    maxWidth: 1200,
+    maxWidth: 800,
   },
   media: {
     objectFit: "cover",
@@ -26,14 +28,6 @@ const cardStyles = {
   },
 };
 
-type Blog = {
-  title: string;
-  subtitle: string;
-  alt: string;
-  description: string;
-  image: string;
-};
-
 export const Blogs = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
 
@@ -48,6 +42,8 @@ export const Blogs = () => {
           date,
           excerpt: { rendered: description },
           jetpack_featured_media_url: image,
+          slug,
+          id,
         } = blog;
 
         const author = "Daniel K Nguyen";
@@ -65,6 +61,7 @@ export const Blogs = () => {
             />
           ),
           image,
+          link: `${NavigationLinks.Blog}/${slug}/${id}`,
         };
       });
 
@@ -79,7 +76,14 @@ export const Blogs = () => {
       </Typography>
       <Box display="flex" flexDirection="column" alignItems="center">
         {blogs.map((blog, index) => {
-          return <Card key={index} cardStyles={cardStyles} {...blog}></Card>;
+          return (
+            <Card
+              key={index}
+              cardStyles={cardStyles}
+              {...blog}
+              enableTargetBlank={false}
+            ></Card>
+          );
         })}
       </Box>
     </Box>
