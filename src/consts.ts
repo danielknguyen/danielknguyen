@@ -6,4 +6,5 @@ export enum NavigationLinks {
   "Home" = "/",
   "Portfolio" = "/portfolio",
   "Blogs" = "/blogs",
+  "Blog" = "/blog",
 }
