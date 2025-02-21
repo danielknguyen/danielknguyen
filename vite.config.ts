@@ -12,6 +12,7 @@ export default defineConfig({
       pages: "/src/pages",
       assets: "/src/assets",
       services: "/src/services",
+      utils: "/src/utils",
     },
   },
   build: {
