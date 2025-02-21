@@ -39,6 +39,9 @@
     ],
     "@assets/*": [
       "assets/*"
+    ],
+    "@services/*": [
+      "services/*"
     ]
   }
 }
