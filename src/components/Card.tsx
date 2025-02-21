@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import MuiCard from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -29,7 +30,7 @@ interface CardProps {
   subtitle?: string;
   link?: string;
   alt: string;
-  description: string;
+  description: ReactNode;
   image: string;
   actions?: { label: string; onClick: () => void }[];
   cardStyles?: {
@@ -67,7 +68,7 @@ export const Card = ({
             {subtitle}
           </Typography>
         )}
-        <Typography variant="body2" sx={cardStyles.description}>
+        <Typography variant="body2" component="div" sx={cardStyles.description}>
           {description}
         </Typography>
       </CardContent>
