@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+
+  // Using :global to apply styles to global WordPress classes
+  :global {
+    .wp-block-heading {
+      font-weight: 700;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    .wp-block-group {
+      background-color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      padding: 0 15px;
+      margin: 1rem 0;
+    }
+
+    .wp-block-image {
+      margin: 1rem auto;
+    }
+
+    .wp-block-image img {
+      object-fit: contain;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .wp-block-button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin: 1rem 0;
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 24px;
+        background-color: #ffffff;
+        color: #000000;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.5rem;
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+.title {
+  color: #ffffff;
+  font-size: 3em;
+  text-align: center;
+}
