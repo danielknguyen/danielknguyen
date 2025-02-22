@@ -54,7 +54,7 @@ export const Portfolio = () => {
         </Typography>
         <Box className={styles.grid}>
           {projects.map((project) => (
-            <Card key={project.id} {...project} />
+            <Card key={project.id} {...project} enableTargetBlank={false} />
           ))}
         </Box>
       </Box>
