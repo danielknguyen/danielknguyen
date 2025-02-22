@@ -5,7 +5,7 @@ import { Card } from "components/Card";
 import { blogsApi } from "services/modules/blogsApi";
 import styles from "./styles.module.css";
 import { NavigationLinks } from "../../consts";
-import { Blog } from "pages/blog";
+import { BlogType } from "pages/blog/blog";
 
 const cardStyles = {
   root: {
@@ -29,7 +29,7 @@ const cardStyles = {
 };
 
 export const Blogs = () => {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogs, setBlogs] = useState<BlogType[]>([]);
 
   useEffect(() => {
     (async () => {

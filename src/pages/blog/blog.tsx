@@ -26,7 +26,7 @@ const cardStyles = {
   },
 };
 
-export type Blog = {
+export type BlogType = {
   title: string;
   subtitle: string;
   alt: string;
@@ -37,7 +37,7 @@ export type Blog = {
 };
 
 export const Blog = () => {
-  const [blog, setBlog] = useState<Blog>({} as Blog);
+  const [blog, setBlog] = useState<BlogType>({} as BlogType);
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const blogId = urlParams.get("id") || "";
