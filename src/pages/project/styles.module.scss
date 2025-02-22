@@ -51,6 +51,16 @@
         border-radius: 8px;
       }
     }
+
+    .wp-block-embed {
+      padding: 0;
+      margin: 1rem 0;
+
+      iframe {
+        width: 100%;
+        padding: 0;
+      }
+    }
   }
 }
 

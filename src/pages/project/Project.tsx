@@ -30,13 +30,24 @@ export const Project = () => {
         content: { rendered: content },
       } = project[0];
 
+      const cleanContent = DOMPurify.sanitize(content, {
+        ADD_TAGS: ["iframe"],
+        ADD_ATTR: [
+          "allow",
+          "allowfullscreen",
+          "frameborder",
+          "scrolling",
+          "src",
+        ],
+      });
+
       const data = {
         title,
         content: (
           <div
             className={styles.section}
             dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(content),
+              __html: cleanContent,
             }}
           />
         ),
