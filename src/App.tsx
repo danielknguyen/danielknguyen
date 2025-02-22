@@ -3,6 +3,7 @@ import { Home } from "pages/home";
 import { Portfolio } from "pages/portfolio";
 import { Blogs } from "pages/blogs";
 import { Blog } from "pages/blog";
+import { Project } from "pages/project";
 import { Navbar } from "components/Navbar";
 import { pages } from "./consts";
 
@@ -13,7 +14,8 @@ export const App = () => (
     <Navbar logo={LOGO} pages={pages} />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/projects" element={<Portfolio />} />
+      <Route path="/project/:slug/:id" element={<Project />} />
       <Route path="/blogs" element={<Blogs />} />
       <Route path="/blog/:slug/:id" element={<Blog />} />
     </Routes>
