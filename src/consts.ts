@@ -1,10 +1,11 @@
-export type Page = "Home" | "Portfolio" | "Blogs";
+export type Page = "Home" | "Projects" | "Blogs";
 
-export const pages: Page[] = ["Home", "Portfolio", "Blogs"];
+export const pages: Page[] = ["Home", "Projects", "Blogs"];
 
 export enum NavigationLinks {
   "Home" = "/",
-  "Portfolio" = "/portfolio",
+  "Projects" = "/projects",
+  "Project" = "/project",
   "Blogs" = "/blogs",
   "Blog" = "/blog",
 }
