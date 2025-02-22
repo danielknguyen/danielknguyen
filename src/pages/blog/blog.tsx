@@ -32,6 +32,8 @@ export type Blog = {
   alt: string;
   description: ReactNode;
   image: string;
+  id?: string;
+  link?: string;
 };
 
 export const Blog = () => {
