@@ -1,1 +1,0 @@
-export { PortfolioData } from "./portfolioData";
