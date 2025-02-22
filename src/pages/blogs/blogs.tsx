@@ -62,6 +62,7 @@ export const Blogs = () => {
           ),
           image,
           link: `${NavigationLinks.Blog}/${slug}/${id}`,
+          id,
         };
       });
 
@@ -75,10 +76,10 @@ export const Blogs = () => {
         Blogs
       </Typography>
       <Box display="flex" flexDirection="column" alignItems="center">
-        {blogs.map((blog, index) => {
+        {blogs.map((blog) => {
           return (
             <Card
-              key={index}
+              key={blog.id}
               cardStyles={cardStyles}
               {...blog}
               enableTargetBlank={false}
