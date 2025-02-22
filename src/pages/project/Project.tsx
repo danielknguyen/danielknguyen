@@ -1,5 +1,5 @@
 import { ReactNode, useEffect, useState } from "react";
-import { Container, Typography, Box } from "@mui/material";
+import { Container, Typography, Box, Breadcrumbs, Link } from "@mui/material";
 import { pagesApi } from "services/modules/pagesApi";
 import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
@@ -47,13 +47,30 @@ export const Project = () => {
   }, []);
 
   return (
-    <Container maxWidth="lg" className={styles.container}>
-      <Box>
-        <Typography variant="h2" className={styles.title}>
-          {project.title}
-        </Typography>
-        {project.content}
-      </Box>
-    </Container>
+    <>
+      <Breadcrumbs
+        aria-label="breadcrumb"
+        color="#FFFFFF"
+        className={styles.breadcrumbs}
+      >
+        <Link
+          underline="hover"
+          color="inherit"
+          href="/projects"
+          className={styles.link}
+        >
+          Projects
+        </Link>
+        <Typography color="#FFFFFF">{project.title}</Typography>
+      </Breadcrumbs>
+      <Container maxWidth="lg" className={styles.container}>
+        <Box>
+          <Typography variant="h2" className={styles.title}>
+            {project.title}
+          </Typography>
+          {project.content}
+        </Box>
+      </Container>
+    </>
   );
 };
