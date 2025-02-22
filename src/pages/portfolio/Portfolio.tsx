@@ -4,11 +4,11 @@ import { pagesApi } from "services/modules/pagesApi";
 import { Box, Typography } from "@mui/material";
 import { Card } from "components/Card";
 import { NavigationLinks } from "../../consts";
-import { Project } from "pages/project";
+import { ProjectType } from "pages/project/Project";
 import styles from "./styles.module.css";
 
 export const Portfolio = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
+  const [projects, setProjects] = useState<ProjectType[]>([]);
 
   useEffect(() => {
     (async () => {
